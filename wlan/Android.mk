@@ -18,9 +18,4 @@ ifneq (,$(filter wlan, $(TARGET_COMMON_QTI_COMPONENTS)))
 
 include $(CLEAR_VARS)
 
--include device/qcom/wlan/$(TARGET_BOARD_PLATFORM)/AndroidBoardWlan.mk
-ifeq ($(call is-board-platform-in-list,msm8998 sdm660),true)
--include device/qcom/wlan/sdm660_64/AndroidBoardWlan.mk
-endif
-
 endif

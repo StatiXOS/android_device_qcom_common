@@ -12,9 +12,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# Error if TARGET_BOARD_PLATFORM is not set because otherwise the modules with the board in the name cannot be built.
-ifeq ($(TARGET_BOARD_PLATFORM),)
-$(error "TARGET_BOARD_PLATFORM is not defined yet. Please define in your device Makefile if you wish to use this component")
+# Error if PRODUCT_BOARD_PLATFORM is not set because otherwise the modules with the board in the name cannot be built.
+ifeq ($(PRODUCT_BOARD_PLATFORM),)
+$(error "PRODUCT_BOARD_PLATFORM is not defined yet. Please define in your device Makefile if you wish to use this component")
 endif
 
 # Vibrator

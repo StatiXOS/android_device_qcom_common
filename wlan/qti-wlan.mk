@@ -12,11 +12,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# Error if TARGET_BOARD_PLATFORM is not set because otherwise the modules with the board in the name cannot be built.
-ifeq ($(TARGET_BOARD_PLATFORM),)
-$(error "TARGET_BOARD_PLATFORM is not defined yet. Please define in your device Makefile if you wish to use this component")
-endif
-
 BOARD_WLAN_DEVICE := qcwcn
 BOARD_HOSTAPD_DRIVER := NL80211
 BOARD_HOSTAPD_PRIVATE_LIB := lib_driver_cmd_$(BOARD_WLAN_DEVICE)
@@ -43,18 +38,11 @@ PRODUCT_PACKAGES += \
     hostapd_default.conf \
     libqsap_sdk \
     libwifi-hal-qcom \
-    sigma_dut \
     wpa_supplicant \
     wpa_supplicant.conf
 
 # IPACM
 $(call inherit-product, vendor/qcom/opensource/data-ipa-cfg-mgr/ipacm_vendor_product.mk)
-
-# Include QCOM WLAN makefiles.
--include device/qcom/wlan/$(TARGET_BOARD_PLATFORM)/wlan.mk
-ifeq ($(call is-board-platform-in-list,msm8998 sdm660),true)
--include device/qcom/wlan/sdm660_64/wlan.mk
-endif
 
 # Get non-open-source specific aspects.
 $(call inherit-product-if-exists, vendor/qcom/common/wlan/wlan-vendor.mk)
