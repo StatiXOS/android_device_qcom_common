@@ -18,6 +18,7 @@ DEVICE_PATH := device/qcom/common
 
 ifeq ($(TARGET_COMMON_QTI_COMPONENTS), all)
 TARGET_COMMON_QTI_COMPONENTS := \
+    adreno \
     av \
     bt \
     gps \
@@ -72,6 +73,10 @@ include $(DEVICE_PATH)/wlan/qti-wlan.mk
 endif
 
 # 845 series and up
+ifneq (,$(filter adreno, $(TARGET_COMMON_QTI_COMPONENTS)))
+include $(DEVICE_PATH)/adreno/qti-adreno.mk
+endif
+
 ifneq (,$(filter wfd, $(TARGET_COMMON_QTI_COMPONENTS)))
 include $(DEVICE_PATH)/wfd/qti-wfd.mk
 endif
