@@ -1,5 +1,5 @@
 #
-# Copyright 2020 Paranoid Android
+# Copyright 2021 Paranoid Android
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -85,3 +85,7 @@ endif
 ifneq (,$(filter wfd-legacy, $(TARGET_COMMON_QTI_COMPONENTS)))
 include $(DEVICE_PATH)/wfd-legacy/qti-wfd-legacy.mk
 endif
+
+# Public Libraries
+PRODUCT_COPY_FILES += \
+    $(DEVICE_PATH)/public.libraries.system_ext-qti.txt:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/public.libraries-qti.txt
