@@ -18,7 +18,6 @@ DEVICE_PATH := device/qcom/common
 
 ifeq ($(TARGET_COMMON_QTI_COMPONENTS), all)
 TARGET_COMMON_QTI_COMPONENTS := \
-    adreno \
     av \
     bt \
     gps \
@@ -29,6 +28,12 @@ TARGET_COMMON_QTI_COMPONENTS := \
     vibrator \
     wfd \
     wlan
+
+ifneq (,$(filter true, $(call is-board-platform-in-list,$(3_18_FAMILY) $(4_4_FAMILY))))
+TARGET_COMMON_QTI_COMPONENTS += adreno-legacy
+else
+TARGET_COMMON_QTI_COMPONENTS += adreno
+endif
 endif
 
 # QTI common components
@@ -84,6 +89,10 @@ endif
 # 8998 series and older
 ifneq (,$(filter wfd-legacy, $(TARGET_COMMON_QTI_COMPONENTS)))
 include $(DEVICE_PATH)/wfd-legacy/qti-wfd-legacy.mk
+endif
+
+ifneq (,$(filter adreno-legacy, $(TARGET_COMMON_QTI_COMPONENTS)))
+include $(DEVICE_PATH)/adreno-legacy/qti-adreno-legacy.mk
 endif
 
 # Public Libraries
