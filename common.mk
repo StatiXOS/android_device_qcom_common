@@ -16,6 +16,7 @@
 
 DEVICE_PATH := device/qcom/common
 
+ifeq ($(call is-board-platform-in-list,$(QCOM_BOARD_PLATFORMS)),true)
 ifeq ($(TARGET_COMMON_QTI_COMPONENTS), all)
 TARGET_COMMON_QTI_COMPONENTS := \
     av \
@@ -98,3 +99,4 @@ endif
 # Public Libraries
 PRODUCT_COPY_FILES += \
     $(DEVICE_PATH)/public.libraries.system_ext-qti.txt:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/public.libraries-qti.txt
+endif
