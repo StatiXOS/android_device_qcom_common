@@ -16,6 +16,24 @@
       "message": "check vendor, i think we already account for this in one way or another",
       "revId": "e206b59779fbad847c74aab7348a11dca357cd66",
       "serverId": "039621b9-0c7c-40f3-867c-684f4bc911d6"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c6395956_adc1163a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2021-06-17T00:28:04Z",
+      "side": 1,
+      "message": "thanks for the headsup, we added it in https://review.statixos.com/c/android_vendor_statix/+/3948. gonna abandon this one.",
+      "parentUuid": "e9457c1d_f3b91345",
+      "revId": "e206b59779fbad847c74aab7348a11dca357cd66",
+      "serverId": "039621b9-0c7c-40f3-867c-684f4bc911d6"
     }
   ]
 }
